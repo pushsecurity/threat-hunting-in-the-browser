@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Push Security Threat Hunting Demo",
+    "description": "For testing browser extension detection and response techniques",
+    "version": "1.0",
+    "background": {
+      "service_worker": "scripts/background.js"
+    },
+    "permissions": [
+      "alarms",
+      "downloads",
+      "management",
+      "scripting",
+      "storage",
+      "tabs",
+      "webNavigation",
+      "webRequest"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "content_scripts": [
+      {
+        "js": ["scripts/content.js"],
+        "matches": [
+          "*://*/*"
+        ],
+        "run_at": "document_end"
+      }
+    ]
+}
